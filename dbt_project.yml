@@ -1,14 +1,15 @@
 name: "avantor_platform"
-version: "2.1.0"
+version: "1.0.0"
 config-version: 2
 
-profile: "snowflake"
+# This setting configures which "profile" dbt uses for this project.
+profile: 'default'
 require-dbt-version: ">=1.6.0"
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["jaffle-data"]
+seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
