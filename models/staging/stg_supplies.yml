@@ -24,5 +24,5 @@ models:
         data_type: text
       - name: supply_cost
         data_type: number
-      - name: is_perishable_supply
-        data_type: boolean
+      # - name: is_perishable_supply
+      #   data_type: boolean
