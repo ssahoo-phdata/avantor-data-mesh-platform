@@ -1,14 +1,18 @@
 models:
-  - name: stg_supplies
+  - name: supplies
+    latest_version: 2
     description: >
       List of our supply expenses data with basic cleaning and transformation applied.
 
       One row per supply cost, not per supply. As supply costs fluctuate they receive a new row with a new UUID. Thus there can be multiple rows per supply_id.
     access: public
     group: platform
+
     config:
+      materialized: table
       contract:
         enforced: true
+
     columns:
       - name: supply_uuid
         description: The unique key of our supplies per cost.
@@ -26,3 +30,15 @@ models:
         data_type: number
       - name: is_perishable_supply
         data_type: boolean
+
+    versions:
+    
+      - v: 1
+        # Matches what's above -- nothing more needed
+    
+      - v: 2
+        # Removed a column -- this is the breaking change!
+        columns:
+          # This means: use the 'columns' list from above, but exclude is_perishable_supply
+          - include: all
+            exclude: [is_perishable_supply]
