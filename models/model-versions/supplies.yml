@@ -34,6 +34,8 @@ models:
     versions:
     
       - v: 1
+        config:
+          alias: supplies
         # Matches what's above -- nothing more needed
     
       - v: 2
